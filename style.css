@@ -562,11 +562,15 @@ button:not(.locked):hover {
 }
 
 .milestone_ctns > div.bought {
+<<<<<<< Updated upstream
     background-color: limegreen !important;
 }
 
 #gh_mil_ctns {
     height: 100%;
+=======
+    background-color: limegreen;
+>>>>>>> Stashed changes
 }
 
 #charge_mil {
@@ -587,6 +591,7 @@ button:not(.locked):hover {
 #charge_mil > div.green {
     color: lime;
 }
+<<<<<<< Updated upstream
 
 #fog {
     position: absolute;
@@ -679,3 +684,5 @@ button:not(.locked):hover {
     margin-bottom: 3px;
     font-size: 16px;
 }
+=======
+>>>>>>> Stashed changes

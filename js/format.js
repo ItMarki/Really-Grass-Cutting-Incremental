@@ -362,9 +362,9 @@ function formatGain(amt, gain) {
     let ooms = next.div(amt)
     if (ooms.gte(10) && amt.gte(1e100)) {
         ooms = ooms.log10().mul(20)
-        rate = "(+"+format(ooms) + " OoMs/sec)"
+        rate = "（+"+format(ooms) + " 數量級/秒）"
     }
-    else rate = "(+"+format(gain)+"/sec)"
+    else rate = "（+"+format(gain)+"/秒）"
     return rate
 }
 

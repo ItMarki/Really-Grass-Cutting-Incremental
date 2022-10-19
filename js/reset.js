@@ -54,6 +54,7 @@ el.update.reset = _=> {
     if (mapID == 'gh') {
         updateResetHTML('gh')
         updateResetHTML('steel')
+<<<<<<< Updated upstream
         updateResetHTML('gs')
     }
     if (mapID == 'as') {
@@ -62,5 +63,7 @@ el.update.reset = _=> {
     if (mapID == 'rp') {
         updateResetHTML('rocket_part')
         updateResetHTML('gal')
+=======
+>>>>>>> Stashed changes
     }
 }

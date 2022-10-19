@@ -1,9 +1,9 @@
-<html lang="en">
+<html lang="zh-hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Really Grass Cutting Incremental</title>
+    <title>很生草的增量遊戲</title>
 
     <script src="js/break_eternity.js"></script>
     <script src="js/elements.js"></script>
@@ -28,10 +28,13 @@
     <script src="js/features/challenges.js"></script>
     <script src="js/features/gh.js"></script>
     <script src="js/features/steelie.js"></script>
+<<<<<<< Updated upstream
     <script src="js/features/decel.js"></script>
     <script src="js/features/rocket.js"></script>
     <script src="js/features/galactic.js"></script>
     <script src="js/features/star_chart.js"></script>
+=======
+>>>>>>> Stashed changes
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -70,13 +73,13 @@
                             <div id="level_bar">
     
                             </div><div id="level_info">
-                                Level <b id="level_amt" class="cyan">0</b><br>
+                                第 <b id="level_amt" class="cyan">0</b> 等級<br>
                                 <span id="level_progress" style="font-size: 18px;">0 / 0</span><br>
                                 <span id="level_cut" style="font-size: 18px;"></span>
                             </div>
                         </div><div id="tier_div">
                             <div id="tier_bar"></div><div id="tier_info">
-                                Tier <b id="tier_amt" class="yellow">0</b><br>
+                                第 <b id="tier_amt" class="yellow">0</b> 階<br>
                                 <span id="tier_progress" style="font-size: 18px;">0 / 0</span><br>
                                 <span id="tier_cut" style="font-size: 18px;"></span><br>
                                 <span id="tier_mult" style="font-size: 18px;"></span>
@@ -94,6 +97,7 @@
                     </div>
                 </div>
             </div><div id="map_div_opt">
+<<<<<<< Updated upstream
                 <button onclick="if (confirm('Are you sure you want to wipe your save?')) {wipe(true)}">Hard Reset</button>
                 <button onclick="save()">Save</button>
                 <button onclick="importy()">Import</button>
@@ -107,6 +111,19 @@
                 The game inspired by <a href="https://www.roblox.com/games/9292879820">Grass Cutting Incremental</a><br>
                 <b class="red">Warning! Recommended size is 1920x1080! You may change zoom!</b><br><br>
                 Endgame: Level 1500+, Tier 120+; Level 400+ in Anti-Realm
+=======
+                <button onclick="if (confirm('你確定要清除存檔嗎？')) {wipe(true)}">硬重置</button>
+                <button onclick="save()">儲存</button>
+                <button onclick="importy()">導入</button>
+                <button onclick="export_copy()">導出至剪貼簿</button>
+                <button onclick="exporty()">導出</button>
+                <button onclick="window.open('https://discord.gg/Ekp8FsSwzR')">加入 Discord 伺服器</button><br>
+                <button onclick="hideUpgOption()">隱藏已達最大等級/購買的升級：<span id="hideUpgOption">OFF</span></button><br><br>
+                很生草的增量遊戲 - 測試 v0.3 - MrRedShark77 製造，ItMarki 翻譯<br>
+                靈感來源於 <a href="https://www.roblox.com/games/9292879820"><s>生草</s> 割草增量遊戲</a><br>
+                <b class="red">注意！建議螢幕尺寸為 1920x1080！你可能會更改縮放！</b><br><br>
+                遊戲極限：第 370 等級、第 24 階、7 Grasshop
+>>>>>>> Stashed changes
             </div><div id="map_div_p">
                 <div style="width: 100%; height: 50%;">
                     <div class="upgs_div" id="upgs_div_perk"></div>
@@ -127,9 +144,9 @@
                 </div>
             </div><div id="map_div_chal" style="overflow-y: auto;">
                 <div id="chal_unl">
-                    Reach Level 200 to unlock
+                    到達第 200 等級即可解鎖
                 </div><div id="chal_div">
-                    Click any challenge to start! Click again to exit.<br>
+                    點擊任何挑戰以開始該挑戰！再次點擊以退出。<br>
                     <div id="chal_table" class="table_center"></div>
                 </div>
             </div><div id="map_div_gh">
@@ -210,7 +227,32 @@
                     </div>
                     <div style="width: 50%; height: 100%;"><div class="milestone_div" id="milestone_div_agh"></div></div>
                 </div><div style="width: 100%; height: 50%;" class="table_center">
+<<<<<<< Updated upstream
                     <div class="upgs_div" id="upgs_div_moonstone"></div>
+=======
+                    <div style="width: 33%; height: 100%;"><div class="reset_div" id="reset_div_steel"></div></div>
+                    <div style="width: 67%; height: 100%;"><div class="upgs_div" id="upgs_div_factory"></div></div>
+                </div>
+            </div><div id="map_div_fd">
+                <div style="width: 100%; height: 50%;" class="table_center">
+                    <div style="width: 100%; height: 100%;"><div class="upgs_div" id="upgs_div_foundry"></div></div>
+                </div><div style="width: 100%; height: 50%;" class="table_center">
+                    <div style="width: 50%; height: 100%;"><div class="upgs_div" id="upgs_div_gen"></div></div>
+                    <div style="width: 50%; height: 100%;"><div id="charger_div">
+                        <div style="height: 40px;" id="charge_upper">
+
+                        </div><div id="charge_mil">
+                        </div><div style="height: 40px;" id="charge_under">
+
+                        </div>
+                    </div></div>
+                </div>
+            </div><div id="map_div_as">
+                <div style="width: 100%; height: 50%;" class="table_center">
+                    <div style="width: 100%; height: 100%;"><div class="upgs_div" id="upgs_div_assembler"></div></div>
+                </div><div style="width: 100%; height: 50%;" class="table_center">
+                    <div style="width: 100%; height: 100%;"></div>
+>>>>>>> Stashed changes
                 </div>
             </div>
         </div>

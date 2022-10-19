@@ -5,7 +5,10 @@ function calc(dt) {
     tmp.autocutTime += dt
     player.time += dt
     player.sTime += dt
+<<<<<<< Updated upstream
     player.gTime += dt
+=======
+>>>>>>> Stashed changes
 
     if (tmp.spawn_time >= tmp.grassSpawn) {
         while (tmp.spawn_time >= tmp.grassSpawn) {
@@ -30,6 +33,7 @@ function calc(dt) {
     if (tmp.ppGainP > 0 && player.level >= 30 && !decel) player.pp = player.pp.add(tmp.ppGain.mul(dt*tmp.ppGainP))
     if (tmp.crystalGainP > 0 && player.level >= 100 && !decel) player.crystal = player.crystal.add(tmp.crystalGain.mul(dt*tmp.crystalGainP))
 
+<<<<<<< Updated upstream
     if (hasUpgrade('factory',7)) {
         player.ap = player.ap.add(player.bestAP2.mul(dt*tmp.oilRigBase))
         player.oil = player.oil.add(player.bestOil2.mul(dt*tmp.oilRigBase))
@@ -40,8 +44,17 @@ function calc(dt) {
     }
 
     if (hasUpgrade('factory',2)) player.chargeRate = player.chargeRate.add(tmp.chargeGain.mul(dt))
+=======
+    if (tmp.ppGainP > 0 && player.level >= 30) player.pp = player.pp.add(tmp.ppGain.mul(dt*tmp.ppGainP))
+    if (tmp.crystalGainP > 0 && player.level >= 100) player.crystal = player.crystal.add(tmp.crystalGain.mul(dt*tmp.crystalGainP))
+
+    if (hasUpgrade('factory',2)) player.chargeRate = player.chargeRate.add(tmp.chargeGain.mul(dt))
+    if (tmp.ppGainP > 0) player.pp = player.pp.add(tmp.ppGain.mul(dt*tmp.ppGainP))
+    if (tmp.crystalGainP > 0) player.crystal = player.crystal.add(tmp.crystalGain.mul(dt*tmp.crystalGainP))
+>>>>>>> Stashed changes
 
     player.bestGrass = player.bestGrass.max(player.grass)
+    player.bestCharge = player.bestCharge.max(player.chargeRate)
     player.bestPP = player.bestPP.max(player.pp)
     player.bestCrystal = player.bestCrystal.max(player.crystal)
     player.bestCharge = player.bestCharge.max(player.chargeRate)

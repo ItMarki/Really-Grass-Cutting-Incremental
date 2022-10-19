@@ -56,7 +56,7 @@ Decimal.prototype.format = function (acc=2, max=9) { return format(this.clone(),
 
 Decimal.prototype.formatGain = function (gain, mass=false) { return formatGain(this.clone(), gain, mass) }
 
-function softcapHTML(x, start) { return E(x).gte(start)?` <span class='soft'>(softcapped)</span>`:"" }
+function softcapHTML(x, start) { return E(x).gte(start)?`<span class='soft'>（軟限制）</span>`:"" }
 
 Decimal.prototype.softcapHTML = function (start) { return softcapHTML(this.clone(), start) }
 
@@ -108,6 +108,7 @@ function getPlayerData() {
 
         chargeRate: E(0),
         bestCharge: E(0),
+<<<<<<< Updated upstream
 
         decel: false,
         aGrass: E(0),
@@ -159,6 +160,9 @@ function getPlayerData() {
             progress: [],
         },
 
+=======
+        
+>>>>>>> Stashed changes
         time: 0,
         version: VER,
     }
@@ -266,7 +270,7 @@ function load(x){
 function exporty() {
     let str = btoa(JSON.stringify(player))
     if (findNaN(str, true)) {
-        console.warn("Error Exporting, because it got NaNed")
+        console.warn("因為存檔發生 NaN 錯誤，所以不能導出")
         return
     }
     save();
@@ -274,14 +278,14 @@ function exporty() {
     window.URL = window.URL || window.webkitURL;
     let a = document.createElement("a")
     a.href = window.URL.createObjectURL(file)
-    a.download = "GCI Save - "+new Date().toGMTString()+".txt"
+    a.download = "GCI 存檔 - "+new Date().toGMTString()+".txt"
     a.click()
 }
 
 function export_copy() {
     let str = btoa(JSON.stringify(player))
     if (findNaN(str, true)) {
-        console.warn("Error Exporting, because it got NaNed")
+        console.warn("因為存檔發生 NaN 錯誤，所以不能導出")
         return
     }
 
@@ -291,17 +295,17 @@ function export_copy() {
     copyText.select();
     document.execCommand("copy");
     copyText.style.visibility = "hidden"
-    console.log("Exported to clipboard")
+    console.log("已導出至剪貼簿")
 }
 
 function importy() {
-    let loadgame = prompt("Paste in your save WARNING: WILL OVERWRITE YOUR CURRENT SAVE")
+    let loadgame = prompt("請粘貼你的存檔 - 警告：這個操作會覆寫你目前的存檔")
         if (loadgame != null) {
             let keep = player
             try {
                 setTimeout(_=>{
                     if (findNaN(loadgame, true)) {
-                        addNotify("Error Importing, because it got NaNed")
+                        addNotify("因為存檔發生 NaN 錯誤，所以不能導入")
                         return
                     }
                     load(loadgame)
@@ -311,7 +315,7 @@ function importy() {
                     location.reload()
                 }, 200)
             } catch (error) {
-                addNotify("Error Importing")
+                addNotify("導入時發生錯誤")
                 player = keep
             }
         }
@@ -347,7 +351,7 @@ function loadGame(start=true, gotNaN=false) {
 
 function checkNaN() {
     if (findNaN(player)) {
-        console.warn("Game Data got NaNed")
+        console.warn("遊戲資料發生 NaN 錯誤")
 
         resetTemp()
         loadGame(false, true)

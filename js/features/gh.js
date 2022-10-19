@@ -1,6 +1,9 @@
 MAIN.gh = {
     req: _=> Math.ceil(300+E(player.grasshop).scale(20,2,0).toNumber()*10),
+<<<<<<< Updated upstream
     bulk: _=> player.level>=300?E((player.level-300)/10).scale(20,2,0,true).floor().toNumber()+1:0,
+=======
+>>>>>>> Stashed changes
 
     milestone: [
         {
@@ -54,6 +57,7 @@ MAIN.gh = {
             desc: `Charger charge bonuses increase another <b class="green">1</b> OoM sooner per grasshop starting at 24.`,
             effect: _=>Math.max(player.grasshop-23,0),
             effDesc: x=> "+"+format(x,0)+" later",
+<<<<<<< Updated upstream
         },
     ],
 }
@@ -96,6 +100,8 @@ MAIN.gs = {
             desc: `Gain <b class="green">+2</b> more SP per grass-skip.`,
             effect: _=>player.grassskip*2,
             effDesc: x=> "+"+format(x,0),
+=======
+>>>>>>> Stashed changes
         },
     ],
 }
@@ -117,6 +123,7 @@ RESET.gh = {
 
     reset(force=false) {
         if ((this.req()&&player.level>=tmp.gh_req)||force) {
+<<<<<<< Updated upstream
             let res = Math.max(player.grasshop, MAIN.gh.bulk())
             if (force) {
                 this.doReset()
@@ -126,13 +133,26 @@ RESET.gh = {
 
                 updateTemp()
         
+=======
+            if (force) {
+                this.doReset()
+            } else if (player.grasshop >= 20) {
+                player.grasshop++
+
+                updateTemp()
+
+>>>>>>> Stashed changes
                 this.doReset()
             } else if (!tmp.ghRunning) {
                 tmp.ghRunning = true
                 document.body.style.animation = "implode 2s 1"
                 setTimeout(_=>{
+<<<<<<< Updated upstream
                     if (hasStarTree('auto',1) && player.ghMult) player.grasshop = res
                 else player.grasshop++
+=======
+                    player.grasshop++
+>>>>>>> Stashed changes
 
                     updateTemp()
         
@@ -153,7 +173,11 @@ RESET.gh = {
         let keep = []
         if (player.grasshop >= 3) keep.push(0,1)
         if (player.grasshop >= 4) keep.push(2,3,4)
+<<<<<<< Updated upstream
         for (let i = 0; i < 5; i++) if (!keep.includes(i) && player.lowGH > 32) player.chal.comp[i] = 0
+=======
+        for (let i = 0; i < 5; i++) if (!keep.includes(i)) player.chal.comp[i] = 0
+>>>>>>> Stashed changes
 
         resetUpgrades('crystal')
 

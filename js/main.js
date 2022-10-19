@@ -75,6 +75,7 @@ const MAIN = {
             x = x.mul(5).mul(getGHEffect(1))
         }
 
+<<<<<<< Updated upstream
         x = x.mul(upgEffect('aGrass',4))
         x = x.mul(upgEffect('ap',2))
         x = x.mul(upgEffect('oil',1))
@@ -96,6 +97,9 @@ const MAIN = {
         if (inChal(3) || inChal(5)) x = x.root(2)
 
         if (!player.decel && hasUpgrade('plat',10)) x = x.pow(upgEffect('plat',10,1))
+=======
+        if (inChal(3) || inChal(5)) x = x.root(2)
+>>>>>>> Stashed changes
 
         return x
     },
@@ -115,6 +119,7 @@ const MAIN = {
             x = x.mul(5).mul(getGHEffect(2))
         }
 
+<<<<<<< Updated upstream
         x = x.mul(upgEffect('ap',3))
         x = x.mul(upgEffect('oil',2))
 
@@ -132,6 +137,8 @@ const MAIN = {
 
         if (x.lt(1)) return x
 
+=======
+>>>>>>> Stashed changes
         if (player.grasshop >= 7) x = x.pow(1.25)
 
         if (inChal(5)) x = x.root(2)
@@ -142,7 +149,11 @@ const MAIN = {
     autoCut: _=>5-upgEffect('auto',0,0)-upgEffect('plat',0,0)-starTreeEff('progress',3,0),
     level: {
         req(i) {
+<<<<<<< Updated upstream
             i = E(i).scale(player.decel?300:700,2,0).scale(tmp.level.scale1,2,0)
+=======
+            i = E(i).scale(700,2,0).scale(200*(tmp.chargeEff[2]||1),2,0)
+>>>>>>> Stashed changes
 
             if (inChal(0) || inChal(7)) i = i.mul(3)
             
@@ -157,7 +168,11 @@ const MAIN = {
 
             if (inChal(0) || inChal(7)) x = x.div(3)
 
+<<<<<<< Updated upstream
             return Math.floor(x.scale(tmp.level.scale1,2,0,true).scale(player.decel?300:700,2,0,true).toNumber()+1)
+=======
+            return Math.floor(x.scale(200*(tmp.chargeEff[2]||1),2,0,true).scale(700,2,0,true).toNumber()+1)
+>>>>>>> Stashed changes
         },
         cur(i) {
             return i > 0 ? this.req(i-1) : E(0) 
@@ -241,18 +256,26 @@ el.update.main = _=>{
     let tier_unl = player.pTimes > 0
     let astr_unl = player.gTimes > 0
 
-    tmp.el.level.setHTML(`Level <b class="cyan">${format(player.level,0)}</b> (${formatPercent(tmp.level.percent)})`)
+    tmp.el.level.setHTML(`第 <b class="cyan">${format(player.level,0)}</b> 等級（${formatPercent(tmp.level.percent)}）`)
 
     tmp.el.tier.setDisplay(tier_unl)
+<<<<<<< Updated upstream
     tmp.el.astral.setDisplay(astr_unl)
     if (tier_unl) tmp.el.tier.setHTML(`Tier <b class="yellow">${format(player.tier,0)}</b> (${formatPercent(tmp.tier.percent)})`)
     if (astr_unl) tmp.el.astral.setHTML(`Astral <b class="magenta">${format(player.astral,0)}</b> (${formatPercent(tmp.astral.percent)})`)
+=======
+    if (tier_unl) tmp.el.tier.setHTML(`第 <b class="yellow">${format(player.tier,0)}</b> 階（${formatPercent(tmp.tier.percent)}）`)
+>>>>>>> Stashed changes
 
     if (mapID == 'g') {
         tmp.el.level_amt.setTxt(format(player.level,0))
         tmp.el.level_progress.setTxt(tmp.level.progress.format(0)+" / "+tmp.level.next.sub(tmp.level.cur).format(0)+" XP")
         tmp.el.level_bar.changeStyle("width",tmp.level.percent*100+"%")
+<<<<<<< Updated upstream
         tmp.el.level_cut.setTxt("+"+tmp.XPGain.format(1)+" XP/cut")
+=======
+        tmp.el.level_cut.setTxt("+"+tmp.XPGain.format(0)+" XP/割")
+>>>>>>> Stashed changes
 
         tmp.el.tier_div.setDisplay(tier_unl)
         tmp.el.astral_div.setDisplay(astr_unl)
@@ -261,8 +284,13 @@ el.update.main = _=>{
             tmp.el.tier_amt.setTxt(format(player.tier,0))
             tmp.el.tier_progress.setTxt(tmp.tier.progress.format(0)+" / "+tmp.tier.next.sub(tmp.tier.cur).format(0)+" TP")
             tmp.el.tier_bar.changeStyle("width",tmp.tier.percent*100+"%")
+<<<<<<< Updated upstream
             tmp.el.tier_cut.setTxt("+"+tmp.TPGain.format(1)+" TP/cut")
             tmp.el.tier_mult.setTxt(formatMult(tmp.tier.mult,0)+" → "+formatMult(MAIN.tier.mult(player.tier+1),0)+" multiplier")
+=======
+            tmp.el.tier_cut.setTxt("+"+tmp.TPGain.format(0)+" TP/割")
+            tmp.el.tier_mult.setTxt(formatMult(tmp.tier.mult,0)+" → "+formatMult(MAIN.tier.mult(player.tier+1),0)+" 倍率")
+>>>>>>> Stashed changes
         }
 
         if (astr_unl) {

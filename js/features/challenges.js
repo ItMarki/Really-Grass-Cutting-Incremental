@@ -25,7 +25,7 @@ const CHALS = [
 
         title: `Grassless`,
         desc: `You cannot buy any grass upgrades.`,
-        reward: `Grass gain is increased by <b class="green">100%</b> every completions.`,
+        reward: `Grass effect is increased by <b class="green">100%</b> every completions.`,
 
         goal: i=>100+10*i,
         bulk: i=>Math.floor((i-100)/10+1),
