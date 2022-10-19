@@ -14,7 +14,6 @@ window.addEventListener('keydown', e=>{
 const MAP = [
     [null,null,null,null,null,null,null],
     [null,null,null,null,null,null,null],
-<<<<<<< Updated upstream
     [null,null,null,'opt',null,'rp',null],
     [null,null,'auto','g','pc','gh','fd'],
     [null,null,null,'p','chal','as',null],
@@ -28,11 +27,6 @@ const SPACE_MAP = [
     [null,null,null,null,null,null,null],
     [null,null,null,'sc','at',null,null],
     [null,null,null,null,null,null,null],
-=======
-    [null,null,null,'opt',null,null,null],
-    [null,null,'auto','g','pc','gh','fd'],
-    [null,null,null,'p','chal','as',null],
->>>>>>> Stashed changes
     [null,null,null,null,null,null,null],
     [null,null,null,null,null,null,null],
 ]

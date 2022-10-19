@@ -43,13 +43,8 @@ el.update.grassCanvas = _=>{
         if (grass_canvas.width == 0 || grass_canvas.height == 0) resizeCanvas()
         drawGrass()
 
-<<<<<<< Updated upstream
         tmp.el.grass_cap.setHTML(`${format(tmp.grasses.length,0)} / ${format(tmp.grassCap,0)} <span class="smallAmt">(+${format(1/tmp.grassSpawn*tmp.spawnAmt)}/s)</span>`)
         tmp.el.grass_cut.setHTML("+"+format(tmp.grassGain,1)+'<span class="smallAmt">/cut</span>')
-=======
-        tmp.el.grass_cap.setHTML(`${format(tmp.grasses.length,0)} / ${format(tmp.grassCap,0)} <span class="smallAmt">(+${format(1/tmp.grassSpawn*tmp.spawnAmt)}/秒)</span>`)
-        tmp.el.grass_cut.setHTML("+"+format(tmp.grassGain,0)+'<span class="smallAmt">/割</span>')
->>>>>>> Stashed changes
     }
 }
 

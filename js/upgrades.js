@@ -1,10 +1,9 @@
 const U_STEP = [1,25,1/0]
 
 const UPG_RES = {
-    grass: ["棵草",_=>[player,"grass"],'GrassBase'],
-    perk: ["個獎勵點",_=>[tmp,"perkUnspent"],'PerkBase'],
+    grass: ["Grass",_=>[player,"grass"],'GrassBase'],
+    perk: ["Perk",_=>[tmp,"perkUnspent"],'PerkBase'],
     pp: ["PP",_=>[player,"pp"],'PrestigeBase'],
-<<<<<<< Updated upstream
     plat: ["Platinum",_=>[player,"plat"],"PlatBase"],
     crystal: ["Crystal",_=>[player,"crystal"],"CrystalBase"],
     steel: ["Steel",_=>[player,"steel"],"GrasshopBase"],
@@ -14,36 +13,28 @@ const UPG_RES = {
     rf: ["Rocket Fuel",_=>[player.rocket,"amount"],'RocketBase'],
     momentum: ["Momentum",_=>[player,"momentum"],'RocketBase'],
     moonstone: ["Moonstone",_=>[player,"moonstone"],'MoonBase'],
-=======
-    plat: ["個白金",_=>[player,"plat"],"PlatBase"],
-    crystal: ["個晶石",_=>[player,"crystal"],"CrystalBase"],
-    steel: ["個鋼",_=>[player,"steel"],"GrasshopBase"],
->>>>>>> Stashed changes
 }
 
 const isResNumber = ['perk','plat','rf','momentum','moonstone']
 
 const UPGS = {
     grass: {
-<<<<<<< Updated upstream
         unl: _=> !player.decel,
 
-=======
->>>>>>> Stashed changes
         cannotBuy: _=>inChal(1) || inChal(7),
 
         autoUnl: _=>hasUpgrade('auto',3),
 
         noSpend: _=>hasUpgrade('auto',6),
 
-        title: "草升級",
+        title: "Grass Upgrades",
 
         ctn: [
             {
                 max: 1000,
 
-                title: "草價值",
-                desc: `將草獲得量提升 <b class="green">1</b> 棵。<br>每 <b class="yellow">25</b> 級，該效果會<b class="green">翻倍</b>。`,
+                title: "Grass Value",
+                desc: `Increase Grass gain by <b class="green">1</b> per level.<br>This effect is <b class="green">doubled</b> every <b class="yellow">25</b> levels.`,
 
                 res: "grass",
                 icon: ['Curr/Grass'],
@@ -60,8 +51,8 @@ const UPGS = {
             },{
                 max: 1000,
 
-                title: "草上限",
-                desc: `將草上限增加 <b class="green">1</b> 棵。`,
+                title: "More Grass",
+                desc: `Increase grass cap by <b class="green">1</b> per level.`,
 
                 res: "grass",
                 icon: ['Icons/MoreGrass'],
@@ -78,8 +69,8 @@ const UPGS = {
             },{
                 max: 250,
 
-                title: "草生長",
-                desc: `將生草速度加快 <b class="green">10%</b>。`,
+                title: "Grow Speed",
+                desc: `Increase grass grow speed by <b class="green">10%</b> per level.`,
 
                 res: "grass",
                 icon: ['Icons/Speed'],
@@ -97,7 +88,7 @@ const UPGS = {
                 max: 1000,
 
                 title: "XP",
-                desc: `將所得經驗值（XP）提升 <b class="green">1</b> 點。<br>每 <b class="yellow">25</b> 級，該效果會<b class="green">翻倍</b>。`,
+                desc: `Increase experience (XP) gained by <b class="green">1</b> per level.<br>This effect is <b class="green">doubled</b> every <b class="yellow">25</b> levels.`,
 
                 res: "grass",
                 icon: ['Icons/XP'],
@@ -114,13 +105,8 @@ const UPGS = {
             },{
                 max: 5,
 
-<<<<<<< Updated upstream
                 title: "Range",
                 desc: `Increase grass cut range by <b class="green">10</b> per level. Base is 50.`,
-=======
-                title: "範圍",
-                desc: `將割草範圍增加 <b class="green">5</b>。起初為 50。`,
->>>>>>> Stashed changes
 
                 res: "grass",
                 icon: ['Icons/Range'],
@@ -138,12 +124,12 @@ const UPGS = {
         ],
     },
     perk: {
-        title: "獎勵升級",
+        title: "Perk Upgrades",
 
         req: _=>player.level >= 1 || player.pTimes > 0,
-        reqDesc: _=>`到達等級 1 即可解鎖。`,
+        reqDesc: _=>`Reach Level 1 to unlock.`,
 
-        underDesc: _=>`你有 ${format(tmp.perkUnspent,0)} 個獎勵點`,
+        underDesc: _=>`You have ${format(tmp.perkUnspent,0)} Perk`,
 
         autoUnl: _=>hasUpgrade('auto',13),
 
@@ -153,8 +139,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "價值獎勵",
-                desc: `將草獲得量提升 <b class="green">20%</b>，效果隨經驗等級增長。`,
+                title: "Value Perk",
+                desc: `Increase Grass gain by <b class="green">20%</b> per level multiplied by experience level.`,
 
                 res: "perk",
                 icon: ['Curr/Grass'],
@@ -173,8 +159,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "上限獎勵",
-                desc: `將草上限增加 <b class="green">10</b> 棵。`,
+                title: "Cap Perk",
+                desc: `Increase grass cap by <b class="green">10</b> per level.`,
 
                 res: "perk",
                 icon: ['Icons/MoreGrass'],
@@ -193,8 +179,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "生長速度獎勵",
-                desc: `將生草速度增加 <b class="green">25%</b>。`,
+                title: "Grow Speed Perk",
+                desc: `Increase grass grow speed by <b class="green">25%</b> per level.`,
 
                 res: "perk",
                 icon: ['Icons/Speed'],
@@ -213,8 +199,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "XP 獎勵",
-                desc: `將 XP 獲得量提升 <b class="green">20%</b>，效果隨經驗等級增長。`,
+                title: "XP Perk",
+                desc: `Increase XP gain by <b class="green">20%</b> per level multiplied by experience level.`,
 
                 res: "perk",
                 icon: ['Icons/XP'],
@@ -235,13 +221,8 @@ const UPGS = {
 
                 costOnce: true,
 
-<<<<<<< Updated upstream
                 title: "Range Perk",
                 desc: `Increase grass cut range by <b class="green">10</b> per level.`,
-=======
-                title: "範圍獎勵",
-                desc: `將割草範圍增加 <b class="green">5</b>。`,
->>>>>>> Stashed changes
 
                 res: "perk",
                 icon: ['Icons/Range'],
@@ -260,8 +241,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "生長數量獎勵",
-                desc: `將生草數量增加 <b class="green">1</b>。`,
+                title: "Grow Amount Perk",
+                desc: `Increase the grass grow amount by <b class="green">1</b>.`,
 
                 res: "perk",
                 icon: ['Icons/MoreGrass'],
@@ -345,7 +326,7 @@ const UPGS = {
         ],
     },
     auto: {
-        title: "自動化升級",
+        title: "Automation Upgrades",
 
         req: _=>player.level >= 5 || player.pTimes > 0,
         reqDesc: _=>`Reach Level 5 to unlock.`,
@@ -355,7 +336,7 @@ const UPGS = {
                 max: 5,
 
                 title: "Autocut",
-                desc: `每 <b class="green">5</b> 秒自動割草（第一等級以後 -1 秒）。`,
+                desc: `Auto cuts grass every <b class="green">5</b> seconds (-1s every level after the first).`,
             
                 res: "grass",
                 icon: ['Curr/Grass','Icons/Automation'],
@@ -368,7 +349,7 @@ const UPGS = {
             
                     return x
                 },
-                effDesc: x => format(tmp.autocut)+" 秒",
+                effDesc: x => format(tmp.autocut)+" seconds",
             },{
                 unl: _=>player.pTimes>0,
                 max: 5,
@@ -625,14 +606,14 @@ const UPGS = {
         ],
     },
     plat: {
-        title: "白金升級",
+        title: "Platinum Upgrades",
 
         unl: _=>player.pTimes>0,
 
         req: _=>player.tier >= 3||player.cTimes > 0,
-        reqDesc: _=>`到達第 3 級即可解鎖。`,
+        reqDesc: _=>`Reach Tier 3 to unlock.`,
 
-        underDesc: _=>`你有 ${format(player.plat,0)} 個白金（生長機率：${formatPercent(tmp.platChance)}）`,
+        underDesc: _=>`You have ${format(player.plat,0)} Platinum (${formatPercent(tmp.platChance)} grow chance)`,
 
         ctn: [
             {
@@ -640,8 +621,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "自動割草升級",
-                desc: `將自動割草間隔減少 <b class="green">0.1</b> 秒。`,
+                title: "Starter AC",
+                desc: `Decreases auto cut time by <b class="green">0.1</b> seconds per level.`,
 
                 res: "plat",
                 icon: ['Curr/Grass','Icons/Automation'],
@@ -654,14 +635,14 @@ const UPGS = {
 
                     return x
                 },
-                effDesc: x => format(tmp.autocut)+" 秒",
+                effDesc: x => format(tmp.autocut)+" seconds",
             },{
                 max: 100,
 
                 costOnce: true,
 
-                title: "白金 XP",
-                desc: `將 XP 獲得量提升 <b class="green">20%</b>。`,
+                title: "Plat XP",
+                desc: `Increase XP gain by <b class="green">+20%</b> per level.`,
 
                 res: "plat",
                 icon: ['Icons/XP'],
@@ -680,8 +661,8 @@ const UPGS = {
 
                 costOnce: true,
 
-                title: "白金草",
-                desc: `將草獲得量提升 <b class="green">20%</b>。`,
+                title: "Plat Grass",
+                desc: `Increase grass gain by <b class="green">+20%</b> per level.`,
 
                 res: "plat",
                 icon: ['Curr/Grass'],
@@ -751,11 +732,7 @@ const UPGS = {
 
                 res: "plat",
                 icon: ['Curr/Steel2'],
-<<<<<<< Updated upstream
                 
-=======
-
->>>>>>> Stashed changes
                 cost: i => 1000,
                 bulk: i => Math.floor(i/1000),
 
@@ -777,11 +754,7 @@ const UPGS = {
 
                 res: "plat",
                 icon: ['Curr/Prestige','Icons/Exponent'],
-<<<<<<< Updated upstream
                 
-=======
-
->>>>>>> Stashed changes
                 cost: i => 2000,
                 bulk: i => Math.floor(i/2000),
 
@@ -803,11 +776,7 @@ const UPGS = {
 
                 res: "plat",
                 icon: ['Curr/Crystal','Icons/Exponent'],
-<<<<<<< Updated upstream
                 
-=======
-
->>>>>>> Stashed changes
                 cost: i => 3000,
                 bulk: i => Math.floor(i/3000),
 
@@ -817,7 +786,6 @@ const UPGS = {
                     return x
                 },
                 effDesc: x => "^"+format(x),
-<<<<<<< Updated upstream
             },{
                 max: 100,
 
@@ -884,8 +852,6 @@ const UPGS = {
                     return x
                 },
                 effDesc: x => "^"+format(x),
-=======
->>>>>>> Stashed changes
             },
         ],
     },
@@ -1084,12 +1050,9 @@ function updateUpgTemp(id) {
             else if (hasUpgrade('assembler',1) && x == 3) tu.max[x] = Infinity
         } else if (id == "pp") {
             if (hasUpgrade('assembler',2)) tu.max[x] = Infinity
-<<<<<<< Updated upstream
         } else if (id == "crystal") {
             if (hasUpgrade('assembler',3) && x == 5) tu.max[x] = Infinity
             else if (hasUpgrade('assembler',4) && x < 4) tu.max[x] = Infinity
-=======
->>>>>>> Stashed changes
         }
 
         if (upg.unl?upg.unl():true) if (amt < tu.max[x]) ul++
@@ -1116,7 +1079,7 @@ function setupUpgradesHTML(id) {
 
         html += `
         <div style="height: 40px;">
-            ${upgs.title} <button class="buyAllUpg" onclick="buyMaxUpgrades('${id}')">購買全部</button><button class="buyAllUpg" id="upg_auto_${id}" onclick="switchAutoUpg('${id}')">Auto: OFF</button>
+            ${upgs.title} <button class="buyAllUpg" onclick="buyMaxUpgrades('${id}')">Buy All</button><button class="buyAllUpg" id="upg_auto_${id}" onclick="switchAutoUpg('${id}')">Auto: OFF</button>
         </div><div id="upgs_ctn_${id}" class="upgs_ctn">
         </div><div style="height: 40px;" id="upg_under_${id}">
             
@@ -1124,16 +1087,10 @@ function setupUpgradesHTML(id) {
         <div id="upg_desc_div_${id}" class="upg_desc ${id}">
             <div id="upg_desc_${id}"></div>
             <div style="position: absolute; bottom: 0; width: 100%;">
-<<<<<<< Updated upstream
                 <button onclick="tmp.upg_ch.${id} = -1">Cancel</button>
                 <button onclick="buyUpgrade('${id}',tmp.upg_ch.${id})">Buy 1</button>
                 <button onclick="buyNextUpgrade('${id}',tmp.upg_ch.${id})">Buy Next</button>
                 <button onclick="buyMaxUpgrade('${id}',tmp.upg_ch.${id})">Buy Max</button>
-=======
-                <button onclick="tmp.upg_ch.${id} = -1">取消</button>
-                <button onclick="buyUpgrade('${id}',tmp.upg_ch.${id})">購買 1 個</button>
-                <button onclick="buyMaxUpgrade('${id}',tmp.upg_ch.${id})">購買最大</button>
->>>>>>> Stashed changes
             </div>
         </div>
         <div id="upg_req_div_${id}" class="upg_desc ${id}">
@@ -1194,24 +1151,20 @@ function updateUpgradesHTML(id) {
 
                 let h = `
                 [#${ch}] <h2>${upg.title}</h2><br>
-<<<<<<< Updated upstream
                 Level <b class="yellow">${format(amt,0)}${tu.max[ch] < Infinity ? ` / ${format(tu.max[ch],0)}` : ""}</b><br>
-=======
-                第 <b class="yellow">${format(amt,0)}${tu.max[ch] < Infinity ? ` / ${format(tu.max[ch],0)} 等級` : " 等級"}</b><br>
->>>>>>> Stashed changes
                 ${upg.desc}
                 `
 
-                if (upg.effDesc) h += '<br>效果：<span class="cyan">'+upg.effDesc(tu.eff[ch])+"</span>"
+                if (upg.effDesc) h += '<br>Effect: <span class="cyan">'+upg.effDesc(tu.eff[ch])+"</span>"
 
                 if (amt < tu.max[ch]) {
                     let m = Math.min(25,tu.max[ch]-Math.floor(amt/25)*25)
                     let cost2 = upg.costOnce?Decimal.mul(tu.cost[ch],m-amt%m):upg.cost((Math.floor(amt/m)+1)*m-1)//upg.cost(amt+25)
                     
                     h += `
-                    <br><span class="${Decimal.gte(tmp.upg_res[upg.res],cost2)?"green":"red"}">到下一個 25 的價格：${format(cost2,0)} ${dis}</span>
-                    <br><span class="${Decimal.gte(tmp.upg_res[upg.res],tu.cost[ch])?"green":"red"}">價格：${format(tu.cost[ch],0)} ${dis}</span>
-                    <br>你有 ${format(res,0)} ${dis}
+                    <br><span class="${Decimal.gte(tmp.upg_res[upg.res],cost2)?"green":"red"}">Cost to next 25: ${format(cost2,0)} ${dis}</span>
+                    <br><span class="${Decimal.gte(tmp.upg_res[upg.res],tu.cost[ch])?"green":"red"}">Cost: ${format(tu.cost[ch],0)} ${dis}</span>
+                    <br>You have ${format(res,0)} ${dis}
                     `
                 }
 
@@ -1237,7 +1190,7 @@ function updateUpgradesHTML(id) {
                     tmp.el[div_id].changeStyle("width",height+"px")
                     tmp.el[div_id].changeStyle("height",height+"px")
 
-                    tmp.el[div_id+"_cost"].setTxt(amt < tu.max[x] ? format(tu.cost[x],0,6)+" "+UPG_RES[upg.res][0] : "已達最大等級")
+                    tmp.el[div_id+"_cost"].setTxt(amt < tu.max[x] ? format(tu.cost[x],0,6)+" "+UPG_RES[upg.res][0] : "Maxed")
                     tmp.el[div_id+"_cost"].setClasses({upg_cost: true, locked: Decimal.lt(res,tu.cost[x]) && amt < tu.max[x]})
                     //tmp.el[div_id+"_cost"].changeStyle("font-size",(tmp.el[div_id+"_cost"].el.offsetHeight-4)+"px")
 
@@ -1319,12 +1272,6 @@ el.update.upgs = _=>{
             updateUpgradesHTML('momentum')
         }
     }
-    if (mapID == 'gh') updateUpgradesHTML('factory')
-    if (mapID == 'fd') {
-        updateUpgradesHTML('foundry')
-        updateUpgradesHTML('gen')
-    }
-    if (mapID == 'as') updateUpgradesHTML('assembler')
 
     if (mapID == 'opt') tmp.el.hideUpgOption.setTxt(player.options.hideUpgOption?"ON":"OFF")
 }

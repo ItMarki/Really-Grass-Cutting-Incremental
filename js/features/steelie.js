@@ -9,7 +9,6 @@ MAIN.steel = {
 
         x = x.mul(tmp.chargeEff[0]||1)
 
-<<<<<<< Updated upstream
         x = x.mul(upgEffect('aGrass',2))
         x = x.mul(upgEffect('oil',5))
 
@@ -18,26 +17,19 @@ MAIN.steel = {
 
         x = x.mul(getASEff('steel'))
 
-=======
->>>>>>> Stashed changes
         return x.floor()
     },
     foundryEff() {
         let max = Decimal.mul(1000,upgEffect('factory',0))
-<<<<<<< Updated upstream
         let p = player.sTime/3600/starTreeEff('speed',0)
         if (!hasStarTree('speed',8)) p = Math.min(p,1)
         if (p >= 1) p = Math.log10(p)+1
         let x = max.pow(p).max(1)
-=======
-        let x = max.pow(Math.min(player.sTime/3600,1)).max(1)
->>>>>>> Stashed changes
 
         return x
     },
     charger: {
         gain() {
-<<<<<<< Updated upstream
             let x = E(upgEffect('factory',2)).mul(getGHEffect(9)).mul(upgEffect('factory',3)).mul(upgEffect('factory',4)).mul(upgEffect('factory',5)).mul(upgEffect('factory',6)).mul(upgEffect('factory',7))
 
             x = x.mul(upgEffect('gen',2)).mul(upgEffect('gen',3)).mul(chalEff(7))
@@ -53,13 +45,6 @@ MAIN.steel = {
             if (player.decel) x = x.div(1e24)
 
             return x.max(1)
-=======
-            let x = E(upgEffect('factory',2)).mul(getGHEffect(9)).mul(upgEffect('factory',3))
-
-            x = x.mul(upgEffect('gen',2)).mul(upgEffect('gen',3)).mul(chalEff(7))
-
-            return x
->>>>>>> Stashed changes
         },
         effs: [
             {
@@ -93,20 +78,12 @@ MAIN.steel = {
 
                     let s = c.div(this.req.div(tmp.chargeOoMMul).max(1)).max(1)
 
-<<<<<<< Updated upstream
                     let x = s.log10().div(10).add(1).root(2)
                     if (!hasUpgrade('assembler',5)) x = x.softcap(1.25,1/2,0)
 
                     return x.toNumber()
                 },
                 effDesc: x => "Scaled level starts x"+format(x,4)+" later"+(hasUpgrade('assembler',5)?"":softcapHTML(x,1.25)),
-=======
-                    let x = s.log10().div(10).add(1).root(2).softcap(1.25,1/3,0)
-
-                    return x.toNumber()
-                },
-                effDesc: x => "Scaled level starts x"+format(x,4)+" later"+softcapHTML(x,1.25),
->>>>>>> Stashed changes
             },{
                 req: E(1e7),
                 eff(c) {
@@ -167,7 +144,6 @@ MAIN.steel = {
                     return x.toNumber()
                 },
                 effDesc: x => "Boost Crystal gain by "+format(x)+"x",
-<<<<<<< Updated upstream
             },{
                 unl: _=>player.aTimes>0,
                 req: E(1e21),
@@ -194,19 +170,13 @@ MAIN.steel = {
                     return x.toNumber()
                 },
                 effDesc: x => "Boost Oil gain by "+format(x)+"x",
-=======
->>>>>>> Stashed changes
             },
         ],
     },
 }
 
 RESET.steel = {
-<<<<<<< Updated upstream
     unl: _=>player.grasshop>=10||player.gTimes>0,
-=======
-    unl: _=>player.grasshop>=10,
->>>>>>> Stashed changes
 
     req: _=>player.level>=400,
     reqDesc: _=>`Reach Level 400.`,
@@ -243,13 +213,9 @@ UPGS.factory = {
 
     unl: _=>player.sTimes > 0,
 
-<<<<<<< Updated upstream
     underDesc: _=>`You have ${format(player.steel,0)} Steel`+(tmp.steelPass>0?" <span class='smallAmt'>"+player.steel.formatGain(tmp.steelGain.mul(tmp.steelPass))+"</span>":""),
 
     autoUnl: _=>hasStarTree('auto',2),
-=======
-    underDesc: _=>`You have ${format(player.steel,0)} Steel`,
->>>>>>> Stashed changes
 
     ctn: [
         {
@@ -310,11 +276,7 @@ UPGS.factory = {
             max: 100,
 
             title: "Assembler",
-<<<<<<< Updated upstream
             desc: `Unlock a building (on right of Factory) where you can unscale anything. Each level increases charge rate by <b class="green">+10%</b>.`,
-=======
-            desc: `Unlock a building (on bottom of Factory) where you can unscale anything. Each level increases charge rate by <b class="green">+10%</b>.`,
->>>>>>> Stashed changes
         
             res: "steel",
             icon: ["Icons/Assemblerv2"],
@@ -328,7 +290,6 @@ UPGS.factory = {
                 return x
             },
             effDesc: x => format(x)+"x",
-<<<<<<< Updated upstream
         },{
             max: 100,
 
@@ -401,8 +362,6 @@ UPGS.factory = {
                 return x
             },
             effDesc: x => format(x)+"x",
-=======
->>>>>>> Stashed changes
         },
     ],
 }
@@ -520,11 +479,7 @@ UPGS.gen = {
         },{
             max: 1000,
 
-<<<<<<< Updated upstream
             unl: _=>player.grasshop>=14||player.gTimes>0,
-=======
-            unl: _=>player.grasshop>=14,
->>>>>>> Stashed changes
 
             title: "Prestige Charge",
             desc: `Increase charge rate by <b class="green">+10%</b> per level. This effect is increased by <b class="green">25%</b> for every <b class="yellow">25</b> levels.`,
@@ -544,11 +499,7 @@ UPGS.gen = {
         },{
             max: 1000,
 
-<<<<<<< Updated upstream
             unl: _=>player.grasshop>=14||player.gTimes>0,
-=======
-            unl: _=>player.grasshop>=14,
->>>>>>> Stashed changes
 
             title: "Crystal Charge",
             desc: `Increase charge rate by <b class="green">+10%</b> per level. This effect is increased by <b class="green">25%</b> for every <b class="yellow">25</b> levels.`,
@@ -602,7 +553,6 @@ UPGS.assembler = {
                         
             cost: i => E(1e26),
             bulk: i => 1,
-<<<<<<< Updated upstream
         },{
             unl: _=>player.aTimes>0,
 
@@ -636,8 +586,6 @@ UPGS.assembler = {
                         
             cost: i => E(1e53),
             bulk: i => 1,
-=======
->>>>>>> Stashed changes
         },
     ],
 }
@@ -645,10 +593,7 @@ UPGS.assembler = {
 tmp_update.push(_=>{
     let ms = MAIN.steel
     
-<<<<<<< Updated upstream
     tmp.steelPass = starTreeEff('speed',7,0)
-=======
->>>>>>> Stashed changes
     tmp.steelGain = ms.gain()
     tmp.foundryEff = ms.foundryEff()
 
@@ -662,13 +607,9 @@ tmp_update.push(_=>{
     tmp.chargeOoMMul = Decimal.pow(10,tmp.chargeOoM)
 
     for (let x = 0; x < ms.charger.effs.length; x++) {
-<<<<<<< Updated upstream
         let ce = ms.charger.effs[x]
         let unl = ce.unl ? ce.unl() : true
         tmp.chargeEff[x] = ce.eff(unl?player.chargeRate:E(0))
-=======
-        tmp.chargeEff[x] = ms.charger.effs[x].eff(player.chargeRate)
->>>>>>> Stashed changes
     }
 })
 
@@ -697,7 +638,6 @@ el.update.factory = _=>{
 
             for (x in MAIN.steel.charger.effs) {
                 let ce = MAIN.steel.charger.effs[x]
-<<<<<<< Updated upstream
                 let unl = ce.unl ? ce.unl() : true
 
                 tmp.el['charge_mil'+x].setDisplay(unl)
@@ -710,13 +650,4 @@ el.update.factory = _=>{
         }
     }
     if (mapID == "as") tmp.el.refinery_div.setDisplay(hasUpgrade('factory',5))
-=======
-
-                tmp.el['charge_mil'+x].setClasses({green: player.bestCharge.gte(ce.req)})
-
-                tmp.el['charge_mil_eff'+x].setHTML(ce.effDesc(tmp.chargeEff[x]))
-            }
-        }
-    }
->>>>>>> Stashed changes
 }

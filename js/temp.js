@@ -36,11 +36,7 @@ function resetTemp() {
         },
 
         chargeEff: [],
-<<<<<<< Updated upstream
 
-=======
-        
->>>>>>> Stashed changes
         perkUnspent: 0,
         perks: 0,
 

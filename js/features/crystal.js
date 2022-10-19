@@ -9,14 +9,10 @@ MAIN.crystal = {
         x = x.mul(chalEff(6))
 
         x = x.mul(tmp.chargeEff[0]||7)
-<<<<<<< Updated upstream
 
         x = x.mul(upgEffect('rocket',4))
         x = x.mul(upgEffect('momentum',5))
 
-=======
-        
->>>>>>> Stashed changes
         x = x.pow(upgEffect('plat',7))
 
         if (inChal(5)) x = x.root(2)
@@ -29,9 +25,9 @@ RESET.crystal = {
     unl: _=>player.pTimes>0 && !player.decel,
 
     req: _=>player.level>=100,
-    reqDesc: _=>`到達第 100 等級即可結晶。`,
+    reqDesc: _=>`Reach Level 100 to Crystallize.`,
 
-    resetDesc: `結晶時，所有轉生事物 resets everything prestige as well except Platinum for Crystals.<br>Gain more Crystals based on your tier and PP.`,
+    resetDesc: `Crystallizing resets everything prestige as well except Platinum for Crystals.<br>Gain more Crystals based on your tier and PP.`,
     resetGain: _=> `Gain <b>${tmp.crystalGain.format(0)}</b> Crystals`,
 
     title: `Crystallize`,
@@ -377,9 +373,6 @@ UPGS.oil = {
 tmp_update.push(_=>{
     tmp.crystalGain = MAIN.crystal.gain()
     tmp.crystalGainP = (upgEffect('auto',12,0)+upgEffect('gen',1,0))*upgEffect('factory',1,1)
-<<<<<<< Updated upstream
 
     tmp.oilGain = MAIN.oil.gain()
-=======
->>>>>>> Stashed changes
 })

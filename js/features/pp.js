@@ -10,14 +10,10 @@ MAIN.pp = {
         x = x.mul(chalEff(4))
 
         x = x.mul(tmp.chargeEff[0]||6)
-<<<<<<< Updated upstream
 
         x = x.mul(upgEffect('rocket',3))
         x = x.mul(upgEffect('momentum',4))
 
-=======
-        
->>>>>>> Stashed changes
         x = x.pow(upgEffect('plat',6))
 
         if (inChal(3) || inChal(5)) x = x.root(2)
@@ -30,13 +26,13 @@ RESET.pp = {
     unl: _=> !player.decel,
 
     req: _=>player.level>=30,
-    reqDesc: _=>`到達第 30 等級即可轉生。`,
+    reqDesc: _=>`Reach Level 30 to Prestige.`,
 
-    resetDesc: `轉生會重置你的草、草升級、等級和獎勵點，但可以獲得轉生點（PP）。<br>轉生點獲得量隨你的等級和草增長。`,
-    resetGain: _=> `獲得 <b>${tmp.ppGain.format(0)}</b> 個轉生點`,
+    resetDesc: `Prestiging resets your grass, grass upgrades, level and perks for Prestige Points (PP).<br>Gain more PP based on your level and grass.`,
+    resetGain: _=> `Gain <b>${tmp.ppGain.format(0)}</b> Prestige Points`,
 
-    title: `轉生`,
-    resetBtn: `轉生`,
+    title: `Prestige`,
+    resetBtn: `Prestige`,
 
     reset(force=false) {
         if (this.req()||force) {
@@ -74,13 +70,9 @@ RESET.pp = {
 }
 
 UPGS.pp = {
-<<<<<<< Updated upstream
     unl: _=> !player.decel,
 
     title: "Prestige Upgrades",
-=======
-    title: "轉生升級",
->>>>>>> Stashed changes
 
     cannotBuy: _=>inChal(4) || inChal(7),
 
@@ -88,21 +80,16 @@ UPGS.pp = {
     noSpend: _=>hasUpgrade('auto',9),
 
     req: _=>player.pTimes > 0,
-    reqDesc: _=>`轉生一次即可解鎖。`,
+    reqDesc: _=>`Prestige once to unlock.`,
 
-    underDesc: _=>`你有 ${format(player.pp,0)} 個轉生點`+(tmp.ppGainP > 0 ? " <span class='smallAmt'>"+formatGain(player.pp,tmp.ppGain.mul(tmp.ppGainP))+"</span>" : ""),
+    underDesc: _=>`You have ${format(player.pp,0)} Prestige Points`+(tmp.ppGainP > 0 ? " <span class='smallAmt'>"+formatGain(player.pp,tmp.ppGain.mul(tmp.ppGainP))+"</span>" : ""),
 
     ctn: [
         {
             max: 1000,
 
-<<<<<<< Updated upstream
             title: "Grass Value II",
             desc: `Increase grass gain by <b class="green">+50%</b> per level. This effect is increased by <b class="green">50%</b> for every <b class="yellow">25</b> levels.`,
-=======
-            title: "草價值 II",
-            desc: `將草獲得量提升 <b class="green">50%</b>。每 <b class="yellow">25</b> 等級，該效果會增加 <b class="green">50%</b>。`,
->>>>>>> Stashed changes
         
             res: "pp",
             icon: ["Curr/Grass"],
@@ -120,7 +107,7 @@ UPGS.pp = {
             max: 1000,
 
             title: "XP II",
-            desc: `將 XP 獲得量提升 <b class="green">50%</b>。每 <b class="yellow">25</b> 等級，該效果會增加 <b class="green">50%</b>。`,
+            desc: `Increase XP gain by <b class="green">+50%</b> per level. This effect is increased by <b class="green">50%</b> for every <b class="yellow">25</b> levels.`,
         
             res: "pp",
             icon: ["Icons/XP"],
@@ -138,7 +125,7 @@ UPGS.pp = {
             max: 1000,
 
             title: "TP",
-            desc: `將階點（TP）獲得量增加 <b class="green">1</b> 個。每 <b class="yellow">25</b> 等級，該效果會 <b class="green">翻倍</b>。`,
+            desc: `Increase Tier Points (TP) gain by <b class="green">1</b> per level. This effect is <b class="green">doubled</b> for every <b class="yellow">25</b> levels.`,
         
             res: "pp",
             icon: ["Icons/TP"],
@@ -345,9 +332,6 @@ UPGS.ap = {
 tmp_update.push(_=>{
     tmp.ppGain = MAIN.pp.gain()
     tmp.ppGainP = (upgEffect('auto',11,0)+upgEffect('gen',0,0))*upgEffect('factory',1,1)
-<<<<<<< Updated upstream
 
     tmp.apGain = MAIN.ap.gain()
-=======
->>>>>>> Stashed changes
 })
